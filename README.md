@@ -37,9 +37,10 @@ hasMinLength | (value: string, minLength: number) => boolean
 hasMaxLength | (value: string, maxLength: number) => boolean
 isEmail | (value: string) => boolean
 isPhone | (value: string, withPrefix?: boolean = false) => boolean
-isPSC | (value: string) => boolean
-isICO | (value: string) => boolean
-isRC | (value: string) => boolean
+isPSC | (value: string/number) => boolean
+isRC | (value: string/number) => boolean
+isICO | (value: string/number) => boolean
+isDIC | (value: string) => boolean
 
 ### ServiceWorker
 ```javascript
