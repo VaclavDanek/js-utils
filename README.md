@@ -50,9 +50,9 @@ componentDidMount = () => {
   if (process.env.NODE_ENV === 'production') {
     serviceWorker.register({
       onUpdate: () => {
-        // here you should reload page and send some alert for users
+        // here you can reload page and perhaps also show some alert to user
       },
-      swUrl: '', // url of service worker definition script
+      swUrl: '', // url of the service worker script
     })
   }
 }
