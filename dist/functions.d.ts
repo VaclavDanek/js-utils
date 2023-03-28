@@ -1,0 +1,22 @@
+import type { IDocument, IHTMLElement, ISort, ObjectType } from './types';
+export declare const sortArrayOfObjects: (array: ObjectType[], sorts: ISort[], locale?: string, localeOptions?: Intl.CollatorOptions) => ObjectType[];
+export declare const isFullScreen: (doc?: IDocument) => boolean;
+export declare const toggleFullScreen: (elem?: IHTMLElement) => Promise<boolean>;
+export declare const getCookie: (key: string) => string | null;
+export declare const setCookie: (key: string, value: any, minutes?: null | number, samesite?: string, secure?: boolean) => void;
+export declare const getNestedValue: (data: ObjectType | any[], path: string | (string | number)[]) => any;
+export declare const checkType: (variable: any, expected: string) => void;
+export declare const round: (value: number) => number;
+export declare const isTouchDevice: () => boolean;
+declare const _default: {
+    sortArrayOfObjects: (array: Partial<Record<string, any>>[], sorts: ISort[], locale?: string, localeOptions?: Intl.CollatorOptions) => Partial<Record<string, any>>[];
+    isFullScreen: (doc?: IDocument) => boolean;
+    toggleFullScreen: (elem?: IHTMLElement | undefined) => Promise<boolean>;
+    getCookie: (key: string) => string | null;
+    setCookie: (key: string, value: any, minutes?: number | null, samesite?: string | undefined, secure?: boolean | undefined) => void;
+    getNestedValue: (data: any[] | Partial<Record<string, any>>, path: string | (string | number)[]) => any;
+    checkType: (variable: any, expected: string) => void;
+    round: (value: number) => number;
+    isTouchDevice: () => boolean;
+};
+export default _default;

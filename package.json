@@ -19,10 +19,9 @@
     "url": "https://github.com/VaclavDanek/js-utils/issues"
   },
   "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "scripts": {
-    "build": "babel lib --out-dir dist --extensions \".ts,.tsx\"",
-    "minify": "minify dist -d dist",
-    "type-check": "tsc"
+    "build": "babel lib --out-dir dist --extensions \".ts,.tsx\" && tsc && minify dist -d dist"
   },
   "dependencies": {},
   "devDependencies": {

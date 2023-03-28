@@ -1,5 +1,5 @@
 // types
-import type { IDocument, IHTMLElement, ISort, ObjectType } from '../types'
+import type { IDocument, IHTMLElement, ISort, ObjectType } from './types'
 
 export const sortArrayOfObjects = (
   array: ObjectType[],
