@@ -1,5 +1,3 @@
-// @flow
-
 export const matches = (value: any, regex: string): boolean => new RegExp(regex).test(value)
 
 export const isNumber = (value: any): boolean => Number.isFinite(value)
@@ -8,31 +6,30 @@ export const hasMinNumber = (value: number, minNumber: number): boolean => value
 
 export const hasMaxNumber = (value: number, maxNumber: number): boolean => value <= maxNumber
 
-export const isAlphabetic = (value: string | number): boolean => /^[a-zA-Z]+$/.test(value)
+export const isAlphabetic = (value: string): boolean => /^[a-zA-Z]+$/.test(value)
 
-export const isAlphanumeric = (value: string | number): boolean => /^[a-zA-Z0-9]+$/.test(value)
+export const isAlphanumeric = (value: string | number): boolean => /^[a-zA-Z0-9]+$/.test(value.toString())
 
 export const hasMinLength = (value: string | number, minLength: number): boolean =>
-  new RegExp(`^.{${minLength},}$`).test(value)
+  value.toString().length >= minLength
 
 export const hasMaxLength = (value: string | number, maxLength: number): boolean =>
-  new RegExp(`^.{0,${maxLength}}$`).test(value)
+  value.toString().length <= maxLength
 
 export const isEmail = (value: string): boolean => (
-  // eslint-disable-next-line
   /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(value)
 )
 
-export const isPhone = (value: string, withPrefix?: boolean = false): boolean => {
+export const isPhone = (value: string, withPrefix: boolean = false): boolean => {
   if (withPrefix) {
     return /^((00|\+)\d{3})+\s?[1-9]\d{2}\s?\d{3}\s?\d{3}$/.test(value)
   }
   return /^((00|\+)\d{3})?\s?[1-9]\d{2}\s?\d{3}\s?\d{3}$/.test(value)
 }
 
-export const isPSC = (value: string | number): boolean => /^\d{3}\s?\d{2}$/.test(value)
+export const isPSC = (value: string): boolean => /^\d{3}\s?\d{2}$/.test(value)
 
-export const isRC = (value: string | number): boolean => {
+export const isRC = (value: string): boolean => {
   const match = /^(\d{2})(\d{2})(\d{2})\/?(\d{3})(\d?)$/.exec(value)
   if (!match)
     return false
@@ -65,7 +62,7 @@ export const isRC = (value: string | number): boolean => {
   return (month > 0 && month <= 12 && day > 0 && day <= (new Date(year, month, 0)).getDate())
 }
 
-export const isICO = (value: string | number): boolean => {
+export const isICO = (value: string): boolean => {
   const match = /^\d{8}$/.exec(value)
   if (!match)
     return false
