@@ -23,7 +23,9 @@
   "scripts": {
     "build": "babel lib --out-dir dist --extensions \".ts,.tsx\" && tsc && minify dist -d dist"
   },
-  "dependencies": {},
+  "dependencies": {
+    "@types/react": "^18.3.3"
+  },
   "devDependencies": {
     "@babel/cli": "^7.2.3",
     "@babel/core": "^7.21.0",

@@ -2,7 +2,7 @@ export type ObjectType = Partial<Record<string, any>>
 
 export type ValuesType = Partial<Record<string, string | number>>
 
-export interface ISort { 
+export interface Sort { 
   param: string; 
   desc?: boolean; 
 }

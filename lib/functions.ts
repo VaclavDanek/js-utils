@@ -1,14 +1,15 @@
 // types
-import type { IDocument, IHTMLElement, ISort, ObjectType } from './types'
+import type { RefObject } from 'react'
+import type { IDocument, IHTMLElement, Sort, ObjectType } from './types'
 
 export const sortArrayOfObjects = (
   array: ObjectType[],
-  sorts: ISort[],
+  sorts: Sort[],
   locale: string = navigator.language,
   localeOptions: Intl.CollatorOptions = { numeric: true }
 ): ObjectType[] => {
   const compare = (a: ObjectType, b: ObjectType, index: number = 0): number | typeof compare => {
-    const { param, desc = false }: ISort = sorts[index]
+    const { param, desc = false }: Sort = sorts[index]
  
     let result = 0
     const valueA: string = a[param].toString()
@@ -118,6 +119,19 @@ export const round = (value: number): number => (Math.round(value * 100) / 100)
 
 export const isTouchDevice = (): boolean => (('ontouchstart' in window) || (navigator.maxTouchPoints > 0))
 
+export const scrollToElement = (element: RefObject<any> | string, options: ScrollIntoViewOptions = {
+  behavior: 'smooth',
+  block: 'start',
+  inline: 'start',
+}): void => {
+  if (typeof element === 'string') { // element is id in this case
+    document.getElementById(element)?.scrollIntoView(options)
+  }
+  else {
+    element.current.scrollIntoView(options)
+  }
+}
+
 export default {
   sortArrayOfObjects,
   isFullScreen,
@@ -128,4 +142,5 @@ export default {
   checkType,
   round,
   isTouchDevice,
+  scrollToElement,
 }
